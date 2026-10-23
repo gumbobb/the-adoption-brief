@@ -110,15 +110,12 @@ details{background:var(--panel);margin:.6rem 0;border-left:4px solid var(--fores
 details summary{cursor:pointer;padding:.75rem 1rem;font-family:'Roboto Slab',serif;font-weight:700;color:var(--forest);min-height:44px}
 details .in{padding:0 1.1rem 1rem}
 details .in h4{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:1rem 0 .3rem}
-.prompt{font-family:'IBM Plex Mono',monospace;font-size:.85rem;background:var(--bg);border-left:3px solid var(--amber-bg);padding:.45rem .7rem;margin:.35rem 0}
 .refs p{padding-left:2rem;text-indent:-2rem;font-size:.95rem;margin-bottom:.55rem}
 .refs a,.annot a,details a{overflow-wrap:anywhere;word-break:break-word}
 .annot{margin-bottom:1rem}
 .annot b{font-family:'Roboto Slab',serif;color:var(--forest)}
 footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
 .small{font-size:.92rem;color:var(--ink2)}
-.figcap{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:.3rem 0 0}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -156,7 +153,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
 
 <main id="main">
 
-<!-- WHY -->
 <section id="why" aria-labelledby="why-h">
   <div class="wrap">
     <p class="kicker">1 &middot; Why this matters</p>
@@ -170,7 +166,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- MODEL -->
 <section id="model" aria-labelledby="model-h">
   <div class="wrap">
     <p class="kicker">2 &middot; The model in brief</p>
@@ -210,14 +205,13 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- STAGES -->
 <section id="stages" aria-labelledby="stages-h">
   <div class="wrap">
     <p class="kicker">3 &middot; Interactive &middot; Stage finder</p>
     <h2 id="stages-h">Where is your veteran right now?</h2>
     <p>Rogers describes five stages every person moves through when deciding about an innovation (Rogers, 2003; Thompson, 2017). Pick the stage that sounds like your veteran to see matching mentor moves. Use the arrow keys to move between stages.</p>
 
-    <div class="tablist" role="tablist" aria-label="Decision stages" data-tabs="stage">
+    <div class="tablist" role="tablist" aria-label="Decision stages">
       <button role="tab" id="st-1" aria-controls="sp-1" aria-selected="true"><span class="n">1</span>Knowledge</button>
       <button role="tab" id="st-2" aria-controls="sp-2" aria-selected="false" tabindex="-1"><span class="n">2</span>Persuasion</button>
       <button role="tab" id="st-3" aria-controls="sp-3" aria-selected="false" tabindex="-1"><span class="n">3</span>Decision</button>
@@ -273,14 +267,13 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- ATTRIBUTES -->
 <section id="attributes" aria-labelledby="attr-h">
   <div class="wrap">
     <p class="kicker">4 &middot; Interactive &middot; Attribute explorer</p>
     <h2 id="attr-h">Why is your veteran hesitating?</h2>
     <p>Rogers identified five perceived attributes that predict whether, and how fast, people adopt an innovation. In a 2024 study of students adopting ChatGPT, all five shaped adoption (Raman et al., 2024). Each one is a lever a mentor can pull.</p>
 
-    <div class="tablist" role="tablist" aria-label="Perceived attributes" data-tabs="attr">
+    <div class="tablist" role="tablist" aria-label="Perceived attributes">
       <button role="tab" id="at-1" aria-controls="ap-1" aria-selected="true">Relative advantage</button>
       <button role="tab" id="at-2" aria-controls="ap-2" aria-selected="false" tabindex="-1">Compatibility</button>
       <button role="tab" id="at-3" aria-controls="ap-3" aria-selected="false" tabindex="-1">Complexity</button>
@@ -331,7 +324,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- CURVE -->
 <section id="curve" aria-labelledby="curve-h">
   <div class="wrap">
     <p class="kicker">5 &middot; Interactive &middot; Adopter curve</p>
@@ -364,7 +356,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- CHECKLIST -->
 <section id="checklist" aria-labelledby="check-h">
   <div class="wrap">
     <p class="kicker">6 &middot; Interactive &middot; Responsible-use checklist</p>
@@ -384,7 +375,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- IMPLICATIONS -->
 <section id="implications" aria-labelledby="imp-h">
   <div class="wrap">
     <p class="kicker">7 &middot; Applications and implications</p>
@@ -412,18 +402,16 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- RESOURCES -->
 <section id="resources" aria-labelledby="res-h">
   <div class="wrap">
     <p class="kicker">8 &middot; Annotated resources</p>
     <h2 id="res-h">Go further</h2>
-    <div class="annot"><p><b><a href="https://www.mynextmove.org/vets/">My Next Move for Veterans</a></b> (National Center for O*NET Development, U.S. Department of Labor). An official, free tool that matches a military job code to related civilian careers. Mentors can use it to check whether an AI's skill translation holds up.</p></div>
+    <div class="annot"><p><b><a href="https://www.mynextmove.org/vets/">My Next Move for Veterans</a></b> (National Center for O*NET Development, n.d.). An official, free tool that matches a military job code to related civilian careers. Mentors can use it to check whether an AI's skill translation holds up.</p></div>
     <div class="annot"><p><b><a href="https://doi.org/10.6028/NIST.AI.600-1">Generative AI Profile, NIST AI 600-1</a></b> (Autio et al., 2024). The federal government's guide to the main risks of generative AI, including confabulation, data privacy, and human over-reliance on AI. Useful background for the checklist.</p></div>
     <div class="annot"><p><b><a href="https://open.library.okstate.edu/foundationsofeducationaltechnology/chapter/4-diffusion-of-innovation/">Diffusion of Innovation, in Foundations of Educational Technology</a></b> (Thompson, 2017). The open textbook section this resource remixes, with two short videos on the theory. A quick, plain-language deeper read.</p></div>
   </div>
 </section>
 
-<!-- REFERENCES -->
 <section id="references" aria-labelledby="ref-h">
   <div class="wrap refs">
     <p class="kicker">9 &middot; References</p>
@@ -448,7 +436,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" aria-labelledby="about-h">
   <div class="wrap">
     <p class="kicker">10 &middot; About this resource</p>
@@ -474,13 +461,14 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
     </details>
 
     <details>
-      <summary>AI use statement and log</summary>
+      <summary>AI use statement</summary>
       <div class="in">
         <h4>Tool</h4>
-        <p>Claude (Opus 5.5), by Anthropic, used through claude.ai for research support, planning, drafting text, and coding this page.</p>
-        <h4>How it was used</h4
+        <p>Claude (Opus 5.5), by Anthropic (Anthropic, 2026), used through claude.ai for research support, planning, drafting text, and coding this page.</p>
         <h4>How it was used</h4>
-<p>My prompts set the audience, model, framing, and design priorities, and I accepted, revised, or rejected each suggestion.</p>
+        <p>My prompts set the audience, model, framing, and design priorities, and I accepted, revised, or rejected each suggestion.</p>
+        <h4>Human decisions</h4>
+        <p>I chose the audience (volunteer mentors), the model, the focus on AI itself rather than a single tool, the ACP connection, the title, the emphasis on disabled veterans, and the NCO framing of the More Knowledgeable Other.</p>
         <h4>Verification</h4>
         <ul>
           <li>Every source was confirmed to exist, and citation details were checked against publisher or database records.</li>
@@ -524,7 +512,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
 
 <script>
 (function(){
-  // Tabs (ARIA tabs pattern)
   document.querySelectorAll('[role=tablist]').forEach(function(list){
     var tabs = Array.prototype.slice.call(list.querySelectorAll('[role=tab]'));
     function select(tab, focus){
@@ -550,7 +537,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
     });
   });
 
-  // Adopter curve
   var tips = [
     ['Innovators (2.5%)', 'Already experimenting and eager. Channel the energy: they need verification habits more than encouragement.'],
     ['Early adopters (13.5%)', 'Respected opinion leaders. Ask them to share how they use AI well, which makes good use visible to others.'],
@@ -572,7 +558,6 @@ footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
     });
   });
 
-  // Checklist counter (nothing is stored)
   var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
   var count = document.getElementById('checkCount');
   var bar = document.getElementById('checkBar');
