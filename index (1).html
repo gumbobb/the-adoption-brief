@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Adoption Brief: Diffusion of Innovations for Veteran Mentors</title>
+<meta name="description" content="A field guide that uses Rogers' Diffusion of Innovations to help volunteer mentors guide transitioning veterans toward wise adoption of generative AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF6EC; --panel:#F1EADA; --panel2:#F8EEDA; --ink:#221F1A; --ink2:#4A463E;
+  --forest:#1E3D32; --forest2:#2F5D4A; --sage:#55786A; --amber:#8A5509; --amber-bg:#E3A83C;
+  --clay:#9A4B2E; --rule:#D8CFB8; --focus:#1F5FBF; --on-dark:#FAF6EC;
+  --seg1:#1E3D32; --seg2:#2F5D4A; --seg3:#4E7A64; --seg4:#7FA08C; --seg5:#B3C8BA;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141C18; --panel:#1E2923; --panel2:#2A2618; --ink:#ECE7DA; --ink2:#C3C9BF;
+    --forest:#CFE3D6; --forest2:#9CC5AE; --sage:#9DB8A9; --amber:#F0B860; --amber-bg:#E3A83C;
+    --clay:#E59A7C; --rule:#3A4A41; --focus:#8AB4FF; --on-dark:#141C18;
+    --seg1:#CFE3D6; --seg2:#A7C9B5; --seg3:#7FA890; --seg4:#5C8370; --seg5:#3F5E50;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Source Sans 3',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6}
+a{color:var(--forest2);text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{color:var(--amber)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--forest);color:var(--on-dark);padding:.5rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+.wrap{max-width:52rem;margin:0 auto;padding:0 1rem}
+h1,h2,h3{font-family:'Roboto Slab',Georgia,serif;color:var(--forest);line-height:1.2}
+h2{font-size:1.65rem;margin:0 0 .6rem}
+h3{font-size:1.15rem;margin:1.4rem 0 .4rem}
+p{margin:0 0 .9rem}
+ul{padding-left:1.25rem;margin:0 0 .9rem}
+li{margin-bottom:.35rem}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600;margin:0 0 .35rem}
+/* header */
+header.hero{background:#1E3D32;color:#FAF6EC;padding:2.6rem 0 2rem}
+header.hero h1{color:#FAF6EC;font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800;margin:.2rem 0 .5rem;letter-spacing:-.01em}
+header.hero .sub{font-family:'Roboto Slab',serif;color:#E3A83C;font-size:1.15rem;margin:0 0 1rem}
+header.hero .by{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.08em;color:#B9CDBF}
+header.hero .kicker{color:#E3A83C}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.75rem;margin-top:1.4rem}
+.meta div{background:rgba(250,246,236,.08);border-left:3px solid #E3A83C;padding:.6rem .8rem;font-size:.97rem;color:#E9EFE9}
+.meta b{display:block;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#E3A83C;font-weight:600}
+nav.toc{border-bottom:1px solid var(--rule);background:var(--bg)}
+@media (min-width:48rem){nav.toc{position:sticky;top:0;z-index:5}}
+section{scroll-margin-top:3.5rem}
+nav.toc ul{list-style:none;display:flex;flex-wrap:wrap;gap:.25rem 1rem;padding:.6rem 0;margin:0}
+nav.toc a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;text-decoration:none;color:var(--ink2)}
+nav.toc a:hover{color:var(--amber)}
+section{padding:2.4rem 0;border-bottom:1px solid var(--rule)}
+.box{background:var(--panel);border-left:4px solid var(--forest2);padding:.9rem 1.1rem;margin:1rem 0}
+.box.amber{border-left-color:var(--amber-bg);background:var(--panel2)}
+.box .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:.3rem}
+.box p:last-child,.box ul:last-child{margin-bottom:0}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.7rem;margin:1rem 0}
+.card{background:var(--panel);padding:.8rem .9rem;border-top:4px solid var(--forest2)}
+.card b{font-family:'Roboto Slab',serif;color:var(--forest);display:block;margin-bottom:.2rem}
+.card span{font-size:.95rem;color:var(--ink2)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;margin:.6rem 0 1rem}
+caption{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);padding-bottom:.4rem}
+th,td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--rule)}
+th{background:var(--forest);color:var(--on-dark);font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+th[scope=row]{background:transparent;color:var(--forest);font-family:'Roboto Slab',serif;font-size:.95rem;letter-spacing:0;text-transform:none}
+.scroll{overflow-x:auto}
+/* tabs */
+.tablist{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0 0}
+.tablist button{font:600 .95rem 'Source Sans 3',sans-serif;background:var(--panel);color:var(--forest);border:2px solid var(--rule);padding:.5rem .85rem;cursor:pointer;border-radius:3px;min-height:44px}
+.tablist button[aria-selected=true]{background:var(--forest);color:var(--on-dark);border-color:var(--forest)}
+.tablist button .n{font-family:'IBM Plex Mono',monospace;font-size:.75rem;margin-right:.35rem;color:var(--amber)}
+.tablist button[aria-selected=true] .n{color:inherit;opacity:.75}
+.tabpanel{background:var(--panel);border:2px solid var(--forest);padding:1.1rem 1.2rem;margin-top:-2px}
+.tabpanel h3{margin-top:0}
+.says{font-family:'Roboto Slab',serif;font-style:italic;color:var(--forest2);border-left:3px solid var(--amber-bg);padding-left:.75rem;margin:0 0 .8rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.cols h4{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 .3rem}
+.next{font-size:.95rem;border-top:1px dashed var(--rule);padding-top:.6rem;margin-top:.4rem}
+/* curve */
+.curve{margin:1rem 0 .4rem}
+.curve svg{width:100%;height:auto;display:block}
+.curve .seg{transition:opacity .15s}
+.curve.has-sel .seg{opacity:.35}
+.curve.has-sel .seg.sel{opacity:1;fill:#C07A12}
+.curvebtns{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}
+.curvebtns button{font:600 .85rem 'Source Sans 3',sans-serif;background:var(--panel);color:var(--forest);border:2px solid var(--rule);padding:.45rem .3rem;cursor:pointer;border-radius:3px;min-height:44px;line-height:1.2}
+.curvebtns button .pct{display:block;font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--amber)}
+.curvebtns button[aria-pressed=true]{background:var(--forest);color:var(--on-dark);border-color:var(--forest)}
+.curvebtns button[aria-pressed=true] .pct{color:var(--amber-bg)}
+#curveOut{background:var(--panel);padding:.9rem 1.1rem;margin-top:.6rem;min-height:4.5rem}
+@media (max-width:34rem){.curvebtns{grid-template-columns:repeat(2,1fr)}}
+/* checklist */
+.check{list-style:none;padding:0}
+.check li{background:var(--panel);margin-bottom:.45rem;padding:.6rem .8rem;display:flex;gap:.7rem;align-items:flex-start}
+.check input{width:1.3rem;height:1.3rem;margin-top:.2rem;accent-color:#2F5D4A;flex-shrink:0}
+.check label{cursor:pointer}
+.check label b{color:var(--forest)}
+.check small{display:block;color:var(--ink2);font-size:.88rem}
+.progress{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--forest2);margin:.4rem 0 1rem}
+.bar{display:block;height:8px;background:var(--rule);border-radius:4px;overflow:hidden;margin-top:.3rem}
+.bar i{display:block;height:100%;width:0;background:#C07A12}
+/* details */
+details{background:var(--panel);margin:.6rem 0;border-left:4px solid var(--forest2)}
+details summary{cursor:pointer;padding:.75rem 1rem;font-family:'Roboto Slab',serif;font-weight:700;color:var(--forest);min-height:44px}
+details .in{padding:0 1.1rem 1rem}
+details .in h4{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:1rem 0 .3rem}
+.prompt{font-family:'IBM Plex Mono',monospace;font-size:.85rem;background:var(--bg);border-left:3px solid var(--amber-bg);padding:.45rem .7rem;margin:.35rem 0}
+.refs p{padding-left:2rem;text-indent:-2rem;font-size:.95rem;margin-bottom:.55rem}
+.refs a,.annot a,details a{overflow-wrap:anywhere;word-break:break-word}
+.annot{margin-bottom:1rem}
+.annot b{font-family:'Roboto Slab',serif;color:var(--forest)}
+footer{padding:2rem 0 3rem;font-size:.92rem;color:var(--ink2)}
+.small{font-size:.92rem;color:var(--ink2)}
+.figcap{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);margin:.3rem 0 0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Cool Resource &middot; Technology Adoption Models</p>
+    <h1>The Adoption Brief</h1>
+    <p class="sub">Diffusion of Innovations for Veteran Mentors</p>
+    <p class="by">Brandon Hughes &middot; AIL 601, The University of Alabama &middot; Fall 2026 &middot; CC BY-NC 4.0</p>
+    <div class="meta">
+      <div><b>Audience</b>Volunteer mentors of transitioning service members and veterans, in career-mentoring programs such as American Corporate Partners (ACP).</div>
+      <div><b>Purpose</b>Use Rogers' Diffusion of Innovations to see where your veteran is in adopting generative AI, and what to do next to help them adopt it wisely.</div>
+      <div><b>Time</b>About 15 minutes to read. Use the interactive tools before and during mentoring sessions.</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="On this page">
+  <div class="wrap">
+    <ul>
+      <li><a href="#why">Why it matters</a></li>
+      <li><a href="#model">The model</a></li>
+      <li><a href="#stages">Stage finder</a></li>
+      <li><a href="#attributes">Attributes</a></li>
+      <li><a href="#curve">Adopter curve</a></li>
+      <li><a href="#checklist">Checklist</a></li>
+      <li><a href="#implications">Implications</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- WHY -->
+<section id="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <p class="kicker">1 &middot; Why this matters</p>
+    <h2 id="why-h">AI is now part of the job search. Wise adoption is the goal.</h2>
+    <p>Generative AI tools such as ChatGPT, Claude, and Gemini now show up at every step of a civilian job search: résumés, cover letters, interview practice, and the screening systems on the employer's side. For a transitioning veteran, they promise help with the hardest part of the move, which is <strong>translating military experience into civilian terms</strong>. Research on veterans' transition treats that skill translation as a central question (Jasionowicz et al., 2026), and coaches in one program found that many veterans "had no idea how much experience they had in the military" (Porter et al., 2023, p. 30).</p>
+    <p>But AI adoption among veterans is uneven. Some use it daily. Others distrust it, and some have good reasons to: a tool that inflates a record or misstates a rank is an integrity problem, not a convenience. As a mentor, you are in the best position to help, because people decide about new tools mainly through trusted, person-to-person channels (Rogers, 2003). Your job is not to maximize adoption. It is to help your veteran adopt AI <strong>wisely</strong>: where it helps, with safeguards, and in their own voice.</p>
+    <div class="box amber">
+      <span class="lab">Meet Alex, a composite veteran</span>
+      <p>Alex is a composite, not a real person: a Marine Corps logistics chief separating after twelve years, aiming for operations management. Alex is sharp, disciplined, and skeptical of anything that "makes stuff up." You will see Alex's words in the stage finder below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model" aria-labelledby="model-h">
+  <div class="wrap">
+    <p class="kicker">2 &middot; The model in brief</p>
+    <h2 id="model-h">Diffusion of Innovations</h2>
+    <p>Everett Rogers defined diffusion as "the process in which an innovation is communicated through certain channels over time among the members of a social system" (Rogers, 2003, p. 5). An innovation is anything <em>perceived</em> as new by the person deciding, so what counts is how AI looks to your veteran, not how good it actually is (Thompson, 2017).</p>
+    <div class="grid4" role="list" aria-label="The four elements of diffusion">
+      <div class="card" role="listitem"><b>The innovation</b><span>Generative AI, as your veteran perceives it.</span></div>
+      <div class="card" role="listitem"><b>Communication channels</b><span>Ads and webinars build awareness. Trusted people, like you, change minds.</span></div>
+      <div class="card" role="listitem"><b>Time</b><span>Each person moves through decision stages at their own pace.</span></div>
+      <div class="card" role="listitem"><b>Social system</b><span>The veteran's network: mentors, peers, family, and future employers.</span></div>
+    </div>
+
+    <div class="scroll">
+    <table>
+      <caption>Model at a glance</caption>
+      <tbody>
+        <tr><th scope="row">Focal level</th><td>Individuals deciding within a social system, and the spread of those decisions across the system over time.</td></tr>
+        <tr><th scope="row">Core constructs</th><td>Five perceived attributes, communication channels, time, the social system, five decision stages, and adopter categories.</td></tr>
+        <tr><th scope="row">Mechanism</th><td>How people perceive an innovation's attributes, plus what they hear through trusted channels, shapes each person's decision. Individual decisions add up to an S-shaped curve of adoption.</td></tr>
+        <tr><th scope="row">Outcome explained</th><td>Adoption or rejection decisions, and the rate of adoption. Perceived attributes alone explain 49% to 87% of the variance in how fast innovations are adopted (Rogers, 1995, as cited in Ellsworth, 2000).</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>Key theorists and researchers</h3>
+    <ul>
+      <li><strong>Everett M. Rogers</strong> built the theory across five editions of <em>Diffusion of Innovations</em>, from 1962 to 2003.</li>
+      <li><strong>Bryce Ryan and Neal Gross</strong> (1943) studied how Iowa farmers adopted hybrid seed corn, the study that launched diffusion research.</li>
+      <li><strong>Gary Moore and Izak Benbasat</strong> (1991) built a validated scale for measuring the perceived attributes, which made the theory testable for technology.</li>
+      <li><strong>Penny Thompson</strong> (2017) wrote the open textbook chapter this resource remixes.</li>
+    </ul>
+
+    <div class="box">
+      <span class="lab">Why Diffusion, and not the other three models?</span>
+      <p><strong>TAM</strong> predicts one person's intention from usefulness and ease of use, but says little about how influence travels between people. <strong>UTAUT</strong> adds social influence and support, but was built for workplaces deciding about a mandated system. <strong>CBAM</strong> tracks teachers implementing a program their school has already adopted. Mentoring is voluntary, person-to-person, and happens before and during the decision, which is the ground Diffusion was built for. It also names your role: Rogers calls people who informally sway others' decisions <strong>opinion leaders</strong>, and people who deliberately guide others through adoption <strong>change agents</strong>. A mentor can be both.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section id="stages" aria-labelledby="stages-h">
+  <div class="wrap">
+    <p class="kicker">3 &middot; Interactive &middot; Stage finder</p>
+    <h2 id="stages-h">Where is your veteran right now?</h2>
+    <p>Rogers describes five stages every person moves through when deciding about an innovation (Rogers, 2003; Thompson, 2017). Pick the stage that sounds like your veteran to see matching mentor moves. Use the arrow keys to move between stages.</p>
+
+    <div class="tablist" role="tablist" aria-label="Decision stages" data-tabs="stage">
+      <button role="tab" id="st-1" aria-controls="sp-1" aria-selected="true"><span class="n">1</span>Knowledge</button>
+      <button role="tab" id="st-2" aria-controls="sp-2" aria-selected="false" tabindex="-1"><span class="n">2</span>Persuasion</button>
+      <button role="tab" id="st-3" aria-controls="sp-3" aria-selected="false" tabindex="-1"><span class="n">3</span>Decision</button>
+      <button role="tab" id="st-4" aria-controls="sp-4" aria-selected="false" tabindex="-1"><span class="n">4</span>Implementation</button>
+      <button role="tab" id="st-5" aria-controls="sp-5" aria-selected="false" tabindex="-1"><span class="n">5</span>Confirmation</button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="sp-1" aria-labelledby="st-1" tabindex="0">
+      <h3>Knowledge: learning that it exists</h3>
+      <p class="says">"I've heard of ChatGPT. I don't really know what it does."</p>
+      <div class="cols">
+        <div><h4>What is going on</h4><p>Alex knows AI exists but has no working picture of it. At this stage people gather basic information about what the innovation is and how it works.</p></div>
+        <div><h4>Mentor moves</h4><ul><li>Show one concrete example tied to Alex's goal, such as turning one evaluation bullet into civilian language.</li><li>Explain plainly what AI is and is not: it predicts likely text, and it can be confidently wrong.</li><li>Keep it short. One example beats a lecture.</li></ul></div>
+      </div>
+      <p class="next"><strong>Ready for the next stage when:</strong> Alex asks how it could help with their own search.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="sp-2" aria-labelledby="st-2" tabindex="0" hidden>
+      <h3>Persuasion: forming an opinion</h3>
+      <p class="says">"My buddy said it made his résumé sound fake."</p>
+      <div class="cols">
+        <div><h4>What is going on</h4><p>Alex is forming a favorable or unfavorable attitude, and peers' stories carry real weight. A single bad story can settle the question unless someone trusted offers another view.</p></div>
+        <div><h4>Mentor moves</h4><ul><li>Take the concern seriously. The buddy is right that unedited AI text can sound fake.</li><li>Show a weak example and a strong, edited one side by side.</li><li>Connect good use to values Alex already holds: accuracy, integrity, attention to detail.</li></ul></div>
+      </div>
+      <p class="next"><strong>Ready for the next stage when:</strong> Alex agrees to try it once, with you.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="sp-3" aria-labelledby="st-3" tabindex="0" hidden>
+      <h3>Decision: choosing to try it or not</h3>
+      <p class="says">"Okay. I'll try it, but just for my LinkedIn summary."</p>
+      <div class="cols">
+        <div><h4>What is going on</h4><p>Alex is choosing to adopt or reject. Rejection is a legitimate outcome, and a small, bounded trial is the healthiest way to decide.</p></div>
+        <div><h4>Mentor moves</h4><ul><li>Agree on one low-stakes task.</li><li>Set ground rules first: no personal identifiers, and verify everything (see the checklist below).</li><li>Try it together in a session, so mistakes are caught on the spot.</li></ul></div>
+      </div>
+      <p class="next"><strong>Ready for the next stage when:</strong> Alex uses it on their own between sessions.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="sp-4" aria-labelledby="st-4" tabindex="0" hidden>
+      <h3>Implementation: putting it to work</h3>
+      <p class="says">"It wrote a decent bullet, but it called me a 'supply chain executive.'"</p>
+      <div class="cols">
+        <div><h4>What is going on</h4><p>Alex is using AI and judging its benefits. Problems surface here, and people adapt the tool to fit their needs, which Rogers calls re-invention.</p></div>
+        <div><h4>Mentor moves</h4><ul><li>Teach the habit of checking every claim against Alex's own records and against My Next Move for Veterans.</li><li>Help Alex edit outputs back into their own voice.</li><li>Troubleshoot prompts together: ask for options, not one "final" answer.</li></ul></div>
+      </div>
+      <p class="next"><strong>Ready for the next stage when:</strong> Alex catches errors without your help.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="sp-5" aria-labelledby="st-5" tabindex="0" hidden>
+      <h3>Confirmation: keeping it, or not</h3>
+      <p class="says">"I used it to prep for three interviews. It's useful, but I check everything."</p>
+      <div class="cols">
+        <div><h4>What is going on</h4><p>Alex is looking for evidence that the decision was right. Good experiences confirm it; bad ones can reverse it. Dropping a tool that does not serve them is also a sound outcome.</p></div>
+        <div><h4>Mentor moves</h4><ul><li>Reinforce the habits, not the tool: verification, privacy, ownership of the final words.</li><li>Fade your support on purpose. A scaffold should come down.</li><li>Invite Alex to show a peer how they use it, which spreads wise use through the network.</li></ul></div>
+      </div>
+      <p class="next"><strong>Signs of meaningful use:</strong> Alex uses AI selectively without prompting and can explain when <em>not</em> to use it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ATTRIBUTES -->
+<section id="attributes" aria-labelledby="attr-h">
+  <div class="wrap">
+    <p class="kicker">4 &middot; Interactive &middot; Attribute explorer</p>
+    <h2 id="attr-h">Why is your veteran hesitating?</h2>
+    <p>Rogers identified five perceived attributes that predict whether, and how fast, people adopt an innovation. In a 2024 study of students adopting ChatGPT, all five shaped adoption (Raman et al., 2024). Each one is a lever a mentor can pull.</p>
+
+    <div class="tablist" role="tablist" aria-label="Perceived attributes" data-tabs="attr">
+      <button role="tab" id="at-1" aria-controls="ap-1" aria-selected="true">Relative advantage</button>
+      <button role="tab" id="at-2" aria-controls="ap-2" aria-selected="false" tabindex="-1">Compatibility</button>
+      <button role="tab" id="at-3" aria-controls="ap-3" aria-selected="false" tabindex="-1">Complexity</button>
+      <button role="tab" id="at-4" aria-controls="ap-4" aria-selected="false" tabindex="-1">Trialability</button>
+      <button role="tab" id="at-5" aria-controls="ap-5" aria-selected="false" tabindex="-1">Observability</button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="ap-1" aria-labelledby="at-1" tabindex="0">
+      <h3>Relative advantage: "Is it better than what I do now?"</h3>
+      <div class="cols">
+        <div><h4>Why they hesitate</h4><p>"I can write my own résumé." If AI does not clearly beat the current way, there is no reason to change.</p></div>
+        <div><h4>Mentor move</h4><p>Show the payoff on a real task: three civilian versions of one military bullet in two minutes, for Alex to choose from and edit.</p></div>
+        <div><h4>The evidence</h4><p>Relative advantage is the most obvious attribute: whether the innovation is perceived as better than what it replaces (Rogers, 2003).</p></div>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="ap-2" aria-labelledby="at-2" tabindex="0" hidden>
+      <h3>Compatibility: "Does it fit who I am?"</h3>
+      <div class="cols">
+        <div><h4>Why they hesitate</h4><p>Military culture prizes accuracy and earned authority. A tool that inflates titles, or that does not understand military language, clashes with both.</p></div>
+        <div><h4>Mentor move</h4><p>Use a frame that fits: <strong>AI has not earned its stripes.</strong> It can sound like an expert without the proven knowledge behind the rank, so treat it like a new troop whose work gets checked.</p></div>
+        <div><h4>The evidence</h4><p>Veterans describe the military as having "our own language" that outsiders may not understand (Porter et al., 2023, p. 30). Compatibility weighed heavily for some ChatGPT adopters (Raman et al., 2024).</p></div>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="ap-3" aria-labelledby="at-3" tabindex="0" hidden>
+      <h3>Complexity: "Is it hard to use?"</h3>
+      <div class="cols">
+        <div><h4>Why they hesitate</h4><p>"I don't know what to type." A blank prompt box feels like a test.</p></div>
+        <div><h4>Mentor move</h4><p>Hand over two or three starter prompts and one task at a time. Example: "Here is a bullet from my military evaluation. Suggest three civilian versions. Do not add anything I did not do."</p></div>
+        <div><h4>The evidence</h4><p>Generative AI literacy builds in a progression, from a basic understanding of AI toward skills such as prompting, alongside ethical and legal awareness (Annapureddy et al., 2024). Start at the beginning.</p></div>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="ap-4" aria-labelledby="at-4" tabindex="0" hidden>
+      <h3>Trialability: "Can I try it safely?"</h3>
+      <div class="cols">
+        <div><h4>Why they hesitate</h4><p>Fear of a costly mistake, and of where their information goes.</p></div>
+        <div><h4>Mentor move</h4><p>Try it in session with made-up or non-sensitive details. Nothing gets submitted, and Alex can walk away at any point.</p></div>
+        <div><h4>The evidence</h4><p>Innovations people can try a little at a time spread faster, and trialability matters most to the earliest adopters, who have no one to watch yet (Rogers, 1995, as cited in Ellsworth, 2000).</p></div>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="ap-5" aria-labelledby="at-5" tabindex="0" hidden>
+      <h3>Observability: "Have I seen it work for someone like me?"</h3>
+      <div class="cols">
+        <div><h4>Why they hesitate</h4><p>Alex has seen AI hype, but never a veteran using it well.</p></div>
+        <div><h4>Mentor move</h4><p>Show a before-and-after example, and let Alex watch you use AI in your own work, including the moment you catch and fix a mistake.</p></div>
+        <div><h4>The evidence</h4><p>Seeing others use an innovation successfully increases adoption (Thompson, 2017), and person-to-person channels outweigh mass media (Rogers, 2003).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURVE -->
+<section id="curve" aria-labelledby="curve-h">
+  <div class="wrap">
+    <p class="kicker">5 &middot; Interactive &middot; Adopter curve</p>
+    <h2 id="curve-h">Not every veteran adopts at the same speed</h2>
+    <p>Rogers sorted adopters into five groups by when they adopt. Once a <strong>critical mass</strong> adopts, spread becomes self-sustaining (Rogers, 2003). Select a group for a one-line mentoring tip.</p>
+
+    <div class="curve" id="curveFig">
+      <svg viewBox="0 0 600 150" role="img" aria-labelledby="curveTitle curveDesc">
+        <title id="curveTitle">Rogers' adopter categories</title>
+        <desc id="curveDesc">A bell-shaped curve split into five segments from left to right: innovators 2.5 percent, early adopters 13.5 percent, early majority 34 percent, late majority 34 percent, and cautious adopters, called laggards by Rogers, 16 percent.</desc>
+        <g transform="translate(15,0) scale(2.0,1)">
+          <path class="seg" data-seg="0" fill="var(--seg1)" d="M5,130 L5,128.9 L10.6,128.4 L16.2,127.7 L21.9,126.8 L27.5,125.6 L33.1,124 L38.8,122 L44.4,119.5 L50,116.5 L50,130 Z"/>
+          <path class="seg" data-seg="1" fill="var(--seg2)" d="M50,130 L50,116.5 L55.6,112.8 L61.2,108.4 L66.9,103.3 L72.5,97.5 L78.1,91.1 L83.8,84.2 L89.4,76.9 L95,69.3 L95,130 Z"/>
+          <path class="seg" data-seg="2" fill="var(--seg3)" d="M95,130 L95,69.3 L100.6,61.8 L106.2,54.5 L111.9,47.7 L117.5,41.8 L123.1,36.8 L128.8,33.1 L134.4,30.8 L140,30 L140,130 Z"/>
+          <path class="seg" data-seg="3" fill="var(--seg4)" d="M140,130 L140,30 L145.6,30.8 L151.2,33.1 L156.9,36.8 L162.5,41.8 L168.1,47.7 L173.8,54.5 L179.4,61.8 L185,69.3 L185,130 Z"/>
+          <path class="seg" data-seg="4" fill="var(--seg5)" d="M185,130 L185,69.3 L191.8,78.4 L198.5,87 L205.2,95 L212,102.2 L218.8,108.4 L225.5,113.6 L232.2,117.8 L239,121.1 L245.8,123.7 L252.5,125.6 L259.2,127 L266,128 L275,128.9 L275,130 Z"/>
+        </g>
+        <line x1="15" y1="130" x2="585" y2="130" stroke="var(--ink2)" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="curvebtns" role="group" aria-label="Adopter categories">
+      <button type="button" aria-pressed="false" data-seg="0">Innovators<span class="pct">2.5%</span></button>
+      <button type="button" aria-pressed="false" data-seg="1">Early adopters<span class="pct">13.5%</span></button>
+      <button type="button" aria-pressed="false" data-seg="2">Early majority<span class="pct">34%</span></button>
+      <button type="button" aria-pressed="false" data-seg="3">Late majority<span class="pct">34%</span></button>
+      <button type="button" aria-pressed="false" data-seg="4">Cautious adopters<span class="pct">16%</span></button>
+    </div>
+    <div id="curveOut" aria-live="polite"><p class="small">Select a group to see a tip.</p></div>
+    <p class="small"><strong>Why "cautious adopters"?</strong> Rogers' label for the last group is "laggards." Thompson (2017) notes the label is judgmental and oversimplified. A veteran who refuses to paste their record into a chatbot may be showing sound privacy and security judgment, so this guide uses a neutral name.</p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist" aria-labelledby="check-h">
+  <div class="wrap">
+    <p class="kicker">6 &middot; Interactive &middot; Responsible-use checklist</p>
+    <h2 id="check-h">Before your veteran uses AI on their career materials</h2>
+    <p>Go through these together in a session. The checklist reflects federal guidance on generative AI risks (Autio et al., 2024) and research on generative AI literacy (Annapureddy et al., 2024). Nothing you check is saved or sent anywhere.</p>
+    <p class="progress" id="checkCount" aria-live="polite">0 of 8 checked<span class="bar" aria-hidden="true"><i id="checkBar"></i></span></p>
+    <ul class="check">
+      <li><input type="checkbox" id="c1"><label for="c1"><b>Strip personal identifiers.</b><small>No Social Security or DoD ID numbers, addresses, medical or VA disability details, or other people's names.</small></label></li>
+      <li><input type="checkbox" id="c2"><label for="c2"><b>Protect operational security.</b><small>Nothing classified or sensitive about units, missions, or locations.</small></label></li>
+      <li><input type="checkbox" id="c3"><label for="c3"><b>Verify every translated skill.</b><small>Check each claim against the veteran's own records and against My Next Move for Veterans.</small></label></li>
+      <li><input type="checkbox" id="c4"><label for="c4"><b>Hunt for made-up details.</b><small>AI can invent certifications, titles, and numbers that sound right. Federal guidance calls this confabulation.</small></label></li>
+      <li><input type="checkbox" id="c5"><label for="c5"><b>Keep the veteran's voice.</b><small>The veteran edits and owns the final words, and can explain every line in an interview.</small></label></li>
+      <li><input type="checkbox" id="c6"><label for="c6"><b>Watch for stereotypes.</b><small>Reject outputs that assume things about veterans, such as trauma or rigidity. Veterans already face these stereotypes in hiring (Porter et al., 2023).</small></label></li>
+      <li><input type="checkbox" id="c7"><label for="c7"><b>Follow disclosure rules.</b><small>Disclose AI use wherever an employer or application asks.</small></label></li>
+      <li><input type="checkbox" id="c8"><label for="c8"><b>Plan the fade.</b><small>Use AI as a scaffold that builds the veteran's own skill, not a crutch they cannot work without.</small></label></li>
+    </ul>
+  </div>
+</section>
+
+<!-- IMPLICATIONS -->
+<section id="implications" aria-labelledby="imp-h">
+  <div class="wrap">
+    <p class="kicker">7 &middot; Applications and implications</p>
+    <h2 id="imp-h">Putting the model to work</h2>
+    <h3>Instructional application</h3>
+    <p>Treat each mentoring session as a short learning design. Find the stage, choose one matched move, model the skill, practice it together, and step back as the veteran gains confidence.</p>
+    <h3>Organizational application</h3>
+    <p>A mentoring program can use Diffusion to spread sound AI guidance across its whole network: identify mentors who are early adopters to act as opinion leaders, share real examples so good use is visible, offer safe practice materials, and watch how quickly guidance spreads across different mentor groups.</p>
+    <div class="scroll">
+    <table>
+      <caption>Implications</caption>
+      <thead><tr><th scope="col">For</th><th scope="col">What Diffusion suggests</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Adoption</th><td>Aim for wise adoption, not maximum adoption. Rogers warns of a pro-innovation bias, and a veteran's informed "no" is a valid outcome.</td></tr>
+        <tr><th scope="row">Implementation</th><td>Expect re-invention. Veterans will adapt AI to their own needs, so set guardrails (the checklist) rather than a script.</td></tr>
+        <tr><th scope="row">Research</th><td>Most studies of AI adoption through Diffusion sample students (Raman et al., 2024). How mentors shape veterans' AI adoption, and whether it improves transition outcomes, is an open question.</td></tr>
+        <tr><th scope="row">Practice</th><td>Mentors are the trusted channel that changes minds. Their own visible, careful use is the most persuasive demonstration available.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="cols">
+      <div class="box"><span class="lab">What Diffusion can diagnose</span><ul><li>Where a veteran is in deciding</li><li>Which perceived attribute is the barrier</li><li>Who influences whom in the network</li></ul></div>
+      <div class="box amber"><span class="lab">What it cannot diagnose</span><ul><li>Whether AI actually improves the job search</li><li>How well the veteran uses it once adopted</li><li>Barriers outside perception, like access or cost</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" aria-labelledby="res-h">
+  <div class="wrap">
+    <p class="kicker">8 &middot; Annotated resources</p>
+    <h2 id="res-h">Go further</h2>
+    <div class="annot"><p><b><a href="https://www.mynextmove.org/vets/">My Next Move for Veterans</a></b> (National Center for O*NET Development, U.S. Department of Labor). An official, free tool that matches a military job code to related civilian careers. Mentors can use it to check whether an AI's skill translation holds up.</p></div>
+    <div class="annot"><p><b><a href="https://doi.org/10.6028/NIST.AI.600-1">Generative AI Profile, NIST AI 600-1</a></b> (Autio et al., 2024). The federal government's guide to the main risks of generative AI, including confabulation, data privacy, and human over-reliance on AI. Useful background for the checklist.</p></div>
+    <div class="annot"><p><b><a href="https://open.library.okstate.edu/foundationsofeducationaltechnology/chapter/4-diffusion-of-innovation/">Diffusion of Innovation, in Foundations of Educational Technology</a></b> (Thompson, 2017). The open textbook section this resource remixes, with two short videos on the theory. A quick, plain-language deeper read.</p></div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references" aria-labelledby="ref-h">
+  <div class="wrap refs">
+    <p class="kicker">9 &middot; References</p>
+    <h2 id="ref-h">References</h2>
+    <p>Annapureddy, R., Fornaroli, A., &amp; Gatica-Perez, D. (2024). Generative AI literacy: Twelve defining competencies. <em>Digital Government: Research and Practice</em>. <a href="https://doi.org/10.1145/3685680">https://doi.org/10.1145/3685680</a></p>
+    <p>Anthropic. (2026). <em>Claude</em> (Opus 5.5) [Large language model]. https://claude.ai</p>
+    <p>Autio, C., Schwartz, R., Dunietz, J., Jain, S., Stanley, M., Tabassi, E., Hall, P., &amp; Roberts, K. (2024). <em>Artificial intelligence risk management framework: Generative artificial intelligence profile</em> (NIST AI 600-1). National Institute of Standards and Technology. <a href="https://doi.org/10.6028/NIST.AI.600-1">https://doi.org/10.6028/NIST.AI.600-1</a></p>
+    <p>CAST. (2024). <em>Universal Design for Learning guidelines</em> (Version 3.0). <a href="https://udlguidelines.cast.org">https://udlguidelines.cast.org</a></p>
+    <p>Ellsworth, J. B. (2000). <em>Surviving change: A survey of educational change models</em> (ED443417). ERIC Clearinghouse on Information and Technology.</p>
+    <p>Jasionowicz, J. P., IV, Triana, M. del C., Vogus, T. J., &amp; Delgado, J. (2026). Bridging the gap: An integrative review of research on veterans' transition to the civilian workforce. <em>Journal of Management</em>. Advance online publication. <a href="https://doi.org/10.1177/01492063261456641">https://doi.org/10.1177/01492063261456641</a></p>
+    <p>Mayer, R. E. (2009). <em>Multimedia learning</em> (2nd ed.). Cambridge University Press.</p>
+    <p>Moore, G. C., &amp; Benbasat, I. (1991). Development of an instrument to measure the perceptions of adopting an information technology innovation. <em>Information Systems Research, 2</em>(3), 192-222. <a href="https://doi.org/10.1287/isre.2.3.192">https://doi.org/10.1287/isre.2.3.192</a></p>
+    <p>National Center for O*NET Development. (n.d.). <em>My Next Move for Veterans</em>. U.S. Department of Labor. <a href="https://www.mynextmove.org/vets/">https://www.mynextmove.org/vets/</a></p>
+    <p>Porter, T. H., Rathert, C., &amp; Lawong, D. (2023). Career development through career transition coaching: A qualitative study of military veterans and student coaches. <em>Journal of Service-Learning in Higher Education, 16</em>, 20-43. <a href="https://eric.ed.gov/?id=EJ1382270">https://eric.ed.gov/?id=EJ1382270</a></p>
+    <p>Raman, R., Mandal, S., Das, P., Kaur, T., Sanjanasri, J. P., &amp; Nedungadi, P. (2024). Exploring university students' adoption of ChatGPT using the diffusion of innovation theory and sentiment analysis with gender dimension. <em>Human Behavior and Emerging Technologies, 2024</em>, Article 3085910. <a href="https://doi.org/10.1155/2024/3085910">https://doi.org/10.1155/2024/3085910</a></p>
+    <p>Rogers, E. M. (2003). <em>Diffusion of innovations</em> (5th ed.). Free Press.</p>
+    <p>Ryan, B., &amp; Gross, N. C. (1943). The diffusion of hybrid seed corn in two Iowa communities. <em>Rural Sociology, 8</em>(1), 15-24.</p>
+    <p>Thompson, P. (2017). Acceptance and diffusion of technology. In <em>Foundations of educational technology</em> (Chapter 10). Oklahoma State University. <a href="https://open.library.okstate.edu/foundationsofeducationaltechnology/">https://open.library.okstate.edu/foundationsofeducationaltechnology/</a></p>
+    <p>U.S. Bureau of Labor Statistics. (2026, April 28). <em>Employment situation of veterans, 2025</em> (USDL-26-0666) [News release]. <a href="https://www.bls.gov/news.release/archives/vet_04282026.htm">https://www.bls.gov/news.release/archives/vet_04282026.htm</a></p>
+    <p>Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em>. Harvard University Press.</p>
+    <p>Wood, D., Bruner, J. S., &amp; Ross, G. (1976). The role of tutoring in problem solving. <em>Journal of Child Psychology and Psychiatry, 17</em>(2), 89-100. <a href="https://doi.org/10.1111/j.1469-7610.1976.tb00381.x">https://doi.org/10.1111/j.1469-7610.1976.tb00381.x</a></p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <p class="kicker">10 &middot; About this resource</p>
+    <h2 id="about-h">Design rationale, AI use, and license</h2>
+
+    <details>
+      <summary>Design rationale: UDL and learning theory</summary>
+      <div class="in">
+        <h4>Universal Design for Learning, for this audience</h4>
+        <p>UDL is not optional here. In 2025, 34% of U.S. veterans, and 50% of veterans who served since September 2001, reported a service-connected disability (U.S. Bureau of Labor Statistics, 2026). Some mentors are veterans themselves, and the guidance mentors pass on should model access. Design choices follow the UDL Guidelines 3.0 (CAST, 2024):</p>
+        <ul>
+          <li><strong>Engagement.</strong> Mentors start at their veteran's current stage instead of reading top to bottom. Examples draw on military values, and the neutral term "cautious adopters" avoids a judgmental label.</li>
+          <li><strong>Representation.</strong> Every concept appears as text plus a visual or worked example. The adopter curve has a full text description, jargon is defined in plain language, and the page adapts to light or dark mode and to text resizing.</li>
+          <li><strong>Action and expression.</strong> Mentors act on the content through the stage finder and checklist. Every control works by keyboard, targets are at least 44 pixels tall, nothing is timed, and nothing is collected.</li>
+        </ul>
+        <h4>Learning theory: the More Knowledgeable Other</h4>
+        <p>Vygotsky (1978) describes learning as moving forward with help from a More Knowledgeable Other, and Wood, Bruner, and Ross (1976) describe the help as scaffolding that is withdrawn as skill grows. The military already runs on this idea: noncommissioned officers earn rank through experience and proven knowledge, and junior troops learn from them. That makes mentoring <strong>compatible</strong> with military culture, in Rogers' terms. The stage finder places the veteran, the mentor moves are the scaffolds, and the confirmation stage ends by fading support. It also explains the core caution: AI can sound like a More Knowledgeable Other without having earned the rank, so the human mentor stays in the loop.</p>
+        <h4>Learning theory: multimedia design</h4>
+        <p>Mayer's (2009) principles shaped the page itself: content is split into short, learner-paced segments (segmenting), headings and section numbers cue the structure (signaling), and decorative material is left out (coherence).</p>
+        <h4>Evidence</h4>
+        <p>The theory comes from Rogers (2003), Thompson (2017), and Ellsworth (2000), a Module 5 course reading. Recent evidence comes from Raman et al. (2024) on AI adoption, Porter et al. (2023) and Jasionowicz et al. (2026) on veterans' transition, and Annapureddy et al. (2024) and Autio et al. (2024) on responsible AI use.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>AI use statement and log</summary>
+      <div class="in">
+        <h4>Tool</h4>
+        <p>Claude (Opus 5.5), by Anthropic, used through claude.ai for research support, planning, drafting text, and coding this page.</p>
+        <h4>How it was used</h4>
+        <p>The resource was planned in a step-by-step conversation in which I made each decision before any building began. Representative prompts, with typos corrected:</p>
+        <p class="prompt">"Give me the steps to take. Give me my options. Let's work on this together, step by step. Ask me questions, and I will ask questions until we agree."</p>
+        <p class="prompt">"Can it be veteran related?" followed by "I do work for ACP. Could I tie that in?"</p>
+        <p class="prompt">"I'm not using a tool to teach or to translate. I'm teaching them about AI itself."</p>
+        <p class="prompt">"UDL is good because of access to disabled vets. Military respects MKOs in a way via NCO ranks. People have earned rank through experience and proven knowledge."</p>
+        <p class="prompt">"Let's not skip [the adopter curve]. But let's keep it short."</p>
+        <h4>Human decisions</h4>
+        <p>I chose the audience (volunteer mentors), the model, the focus on AI itself rather than a single tool, the ACP connection, the title, the emphasis on disabled veterans, and the NCO framing of the More Knowledgeable Other.</p>
+        <h4>Verification</h4>
+        <ul>
+          <li>Every source was confirmed to exist, and citation details were checked against publisher or database records.</li>
+          <li>The open textbook license was confirmed word for word from the book's footer.</li>
+          <li>Claims about the theory were checked against Rogers (2003), Thompson (2017), and Ellsworth (2000), and I read each source before submitting.</li>
+        </ul>
+        <h4>Risk mitigation</h4>
+        <ul>
+          <li><strong>Privacy:</strong> no real mentee information appears. "Alex" is a composite.</li>
+          <li><strong>Bias:</strong> the judgmental label "laggards" is reframed, and the checklist asks mentors to reject stereotyped outputs.</li>
+          <li><strong>Copyright:</strong> only openly licensed material was adapted, with full attribution. All graphics are original.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>License, attribution, accessibility, and privacy</summary>
+      <div class="in">
+        <h4>License</h4>
+        <p><em>The Adoption Brief: Diffusion of Innovations for Veteran Mentors</em> by Brandon Hughes is licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)</a>.</p>
+        <h4>Attribution</h4>
+        <p>This resource is adapted from "<a href="https://open.library.okstate.edu/foundationsofeducationaltechnology/chapter/4-diffusion-of-innovation/">10.3 Diffusion of Innovation</a>" in <em>Foundations of Educational Technology</em> by Penny Thompson, Oklahoma State University, licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. <strong>Changes made:</strong> generative AI framed as the innovation; content rewritten for mentors of transitioning veterans; mentor moves, a composite case, and interactive tools added; adopter-category percentages and the 2003 edition of Rogers added; the "laggards" critique extended into a reframed label; recent research, a responsible-use checklist, and accessibility features added. Because the source is licensed for noncommercial use only, this adaptation carries the same noncommercial terms.</p>
+        <h4>Accessibility</h4>
+        <p>Built with semantic HTML, a skip link, keyboard-operable tabs and buttons, visible focus outlines, text descriptions for the graphic, WCAG AA color contrast in light and dark modes, and support for reduced motion. The page contains no audio or video; linked videos are hosted by their creators.</p>
+        <h4>Privacy</h4>
+        <p>The page collects no data, sets no cookies, and runs no analytics. Checklist selections stay in your browser and disappear when you leave.</p>
+        <h4>Affiliation</h4>
+        <p>This is an independent course project. It is not affiliated with, sponsored by, or endorsed by American Corporate Partners.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Brandon Hughes. <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. Adapted from Thompson (2017), CC BY-NC 4.0. Not affiliated with American Corporate Partners.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Tabs (ARIA tabs pattern)
+  document.querySelectorAll('[role=tablist]').forEach(function(list){
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role=tab]'));
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) p.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function(tab, i){
+      tab.addEventListener('click', function(){ select(tab, false); });
+      tab.addEventListener('keydown', function(e){
+        var k = e.key, n = null;
+        if (k === 'ArrowRight' || k === 'ArrowDown') n = tabs[(i + 1) % tabs.length];
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        else if (k === 'Home') n = tabs[0];
+        else if (k === 'End') n = tabs[tabs.length - 1];
+        if (n){ e.preventDefault(); select(n, true); }
+      });
+    });
+  });
+
+  // Adopter curve
+  var tips = [
+    ['Innovators (2.5%)', 'Already experimenting and eager. Channel the energy: they need verification habits more than encouragement.'],
+    ['Early adopters (13.5%)', 'Respected opinion leaders. Ask them to share how they use AI well, which makes good use visible to others.'],
+    ['Early majority (34%)', 'Deliberate and practical. Show proof from peers like them before asking them to try.'],
+    ['Late majority (34%)', 'Skeptical, and they wait until something is normal and safe. Lower the risk with a guided trial and clear guardrails.'],
+    ['Cautious adopters (16%)', 'Often cautious for good reasons, such as privacy or security. Respect a "no," keep the door open, and offer opt-in practice.']
+  ];
+  var fig = document.getElementById('curveFig');
+  var out = document.getElementById('curveOut');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.curvebtns button'));
+  var segs = Array.prototype.slice.call(document.querySelectorAll('#curveFig .seg'));
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var i = +b.dataset.seg;
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      segs.forEach(function(s){ s.classList.toggle('sel', +s.dataset.seg === i); });
+      fig.classList.add('has-sel');
+      out.innerHTML = '<p><strong>' + tips[i][0] + '.</strong> ' + tips[i][1] + '</p>';
+    });
+  });
+
+  // Checklist counter (nothing is stored)
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.check input'));
+  var count = document.getElementById('checkCount');
+  var bar = document.getElementById('checkBar');
+  function update(){
+    var n = boxes.filter(function(b){ return b.checked; }).length;
+    count.firstChild.nodeValue = n + ' of ' + boxes.length + ' checked' + (n === boxes.length ? '. Ready to start.' : '');
+    bar.style.width = (100 * n / boxes.length) + '%';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', update); });
+})();
+</script>
+</body>
+</html>
